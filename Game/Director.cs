@@ -27,6 +27,10 @@ namespace CSE_210_HIGHLOW.Game
         public Director()
         {
             currentCard = new Card();
+
+            currentCard.Draw();
+
+            Console.WriteLine($"Your Card is: {currentCard.value}");
             
         }
 
@@ -78,7 +82,10 @@ namespace CSE_210_HIGHLOW.Game
         public void DoUpdates()
         {
             Card nextCard = new Card();
-            Console.WriteLine($"Next card was: {nextCard.value}")
+
+            nextCard.Draw();
+
+            Console.WriteLine($"Next card was: {nextCard.value}");
             if (nextCard.value < currentCard.value && guess == "l")
             {
                 _totalScore += 100;
@@ -105,16 +112,12 @@ namespace CSE_210_HIGHLOW.Game
                 return;
             }
 /// need to create method in Die that is a int called ;value'
-            string values = "";
-            foreach (Die die in _dice)
-            {
-                values += $"{die.value} ";
-            }
+            
+            
 
-            Console.WriteLine($"You rolled: {values}");
+            Console.WriteLine($"You guessed: {guess}");
             Console.WriteLine($"Your score is: {_totalScore}\n");
-            _isPlaying = (_score > 0);
+            _isPlaying = (_totalScore > 0);
         }
     }
 }
-hi
